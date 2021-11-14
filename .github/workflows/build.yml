@@ -18,7 +18,7 @@ jobs:
 
       # Build artifacts
       - name: Build
-        run:  msbuild SimpleFrameworkApp.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
+        run:  msbuild PowerPointToOSC.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
 
       # Upload artifacts
       - name: Upload artifacts
