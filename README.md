@@ -1,16 +1,20 @@
 # PowerPointToOSC
 
-A .NET core application to send OSC commands based on the content of PowerPoint's slides speaker notes.
+A .NET core application to send [OSC commands](http://cnmat.org/OpenSoundControl/OSC-spec.html) based on the content of PowerPoint's slides speaker notes.
 
 I use it to control a lighting rig, itself controlled by DMX, while I present my slides.
-The USB to DMX interface I use is [DMXIS](https://www.dmxis.com/) from ENTTEC.
+The USB to DMX interface I use is [DMXIS](https://www.dmxis.com/) from ENTTEC. Either DMXIS or ShowBuddyActive can be controlled by OSC.
 
-PowerPointToOSC is based on [PowerPointToOBSSceneSwitcher](https://github.com/shanselman/PowerPointToOBSSceneSwitcher) which allows to select OBS scenes based on the content of slides speaker notes.
+![Screenshot](screenshot.jpg)
+
+PowerPointToOSC is based on [PowerPointToOBSSceneSwitcher](https://github.com/shanselman/PowerPointToOBSSceneSwitcher) which allows to select OBS scenes based on the content of slides speaker notes. There is no OBS support in PowerPointToOSC, which is only focused on OSC.
 
 ## Usage
 
 * Download the latest version from [GitHub](https://github.com/ojacques/PowerPointToOSC/releases)
-* In the speaker notes of the first slide, configure the OSC host to send OSC commands to in the form of "`IP port`":
+* Extract the zip file in a folder of your choice
+* Start `PowerPointToOSC.exe`
+* In the speaker notes of the first slide, configure the OSC host to send OSC commands with the `OSCHOST` verb, in the form of "`IP port`":
 
 ```
 OSCHOST:127.0.0.1 5678
@@ -28,6 +32,8 @@ OSC: /test2 f 123.45
 OSC: /test3 s teststring
 OSC: /test4 b true
 ```
+
+For DMXIS, refer to [this manual](https://dol2kh495zr52.cloudfront.net/pdf/manuals/200405_DMXIS_v1.70_UM.pdf) for OSC commands. For ShowBuddyActive, refer to [this manual](https://www.dmxis.com/release/SBA/Show%20Buddy%20Active.pdf).
 
 PowerPointToOSC relies on [sendosc](https://github.com/yoggy/sendosc) command line. The same syntax applies.
 
