@@ -28,6 +28,9 @@ jobs:
         run:  msbuild PowerPointToOSC.sln /p:PublishSingleFile=True /p:SelfContained=True /p:RuntimeIdentifier=win10-x64 /p:Configuration=Release
         #run: msbuild.exe PowerPointToOSC.sln /t:restore;build;publish /p:PublishSingleFile=True /p:SelfContained=True /p:RuntimeIdentifier=win10-x64 /p:Configuration=Release
 
+      - name: Publish
+        run:  msbuild PowerPointToOSC.sln /t:publish /p:SelfContained=True /p:RuntimeIdentifier=win10-x64 /p:Configuration=Release
+
       # Upload artifacts
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
