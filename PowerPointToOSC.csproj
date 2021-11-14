@@ -5,9 +5,7 @@
     <TargetFramework>net48</TargetFramework>
     <AssemblyName>PowerPointToOSC</AssemblyName>
     <RootNamespace>PowerPointToOSC</RootNamespace>
-    <RuntimeIdentifier>win10-x64</RuntimeIdentifier>
-    <PublishSingleFile>true</PublishSingleFile>
-    <PublishTrimmed>true</PublishTrimmed> 
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
   </PropertyGroup>
 
   <ItemGroup>

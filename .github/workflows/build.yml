@@ -25,11 +25,11 @@ jobs:
       # Build artifacts
       - name: Build
         #run:  msbuild PowerPointToOSC.sln /p:Configuration=Release /p:RuntimeIdentifier=win-x64 /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
-        run:  msbuild PowerPointToOSC.sln /p:PublishSingleFile=True /p:SelfContained=True /p:RuntimeIdentifier=win10-x64 /p:Configuration=Release
+        run:  msbuild PowerPointToOSC.sln /p:RuntimeIdentifier=win-x64 /p:Configuration=Release
         #run: msbuild.exe PowerPointToOSC.sln /t:restore;build;publish /p:PublishSingleFile=True /p:SelfContained=True /p:RuntimeIdentifier=win10-x64 /p:Configuration=Release
 
       - name: Publish
-        run:  msbuild PowerPointToOSC.sln /t:publish /p:SelfContained=True /p:RuntimeIdentifier=win10-x64 /p:Configuration=Release
+        run:  msbuild PowerPointToOSC.sln /t:publish /p:Configuration=Release
 
       # Upload artifacts
       - name: Upload artifacts
