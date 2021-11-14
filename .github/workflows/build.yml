@@ -1,6 +1,6 @@
 name: Build and Package
 
-on: [push, workflow_dispatch]
+on: [push]
 
 jobs:
   
@@ -24,16 +24,34 @@ jobs:
 
       # Build artifacts
       - name: Build
-        #run:  msbuild PowerPointToOSC.sln /p:Configuration=Release /p:RuntimeIdentifier=win-x64 /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
         run:  msbuild PowerPointToOSC.sln /p:RuntimeIdentifier=win-x64 /p:Configuration=Release
-        #run: msbuild.exe PowerPointToOSC.sln /t:restore;build;publish /p:PublishSingleFile=True /p:SelfContained=True /p:RuntimeIdentifier=win10-x64 /p:Configuration=Release
 
-      - name: dir files
-        run: dir -s bin
-
-        # Upload artifacts
+      # Upload artifacts
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: Dist
+          name: PowerPointToOSC
           path: bin\Release\net48\win-x64
+          retention-days: 7
+
+      - name: Generate zip bundle
+        run: 7z a -tzip PowerPointToOSC.zip .\bin\Release\net48\win-x64\*
+      
+      #- if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+      - name: Publish latest pre-release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          files: |
+            PowerPointToOSC.zip
+
+      - if: startsWith(github.ref, 'refs/tags/v')
+        name: Publish tagged release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            PowerPointToOSC.zip
