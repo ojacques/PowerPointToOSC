@@ -12,9 +12,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # We need msbuild
+      # We need msbuild and NuGet
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.0.2
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0.2
+      
+      - name: Restore NuGet Packages
+        run: nuget restore PowerPointToOSC.sln
 
       # Build artifacts
       - name: Build
