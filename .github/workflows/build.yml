@@ -18,13 +18,11 @@ jobs:
 
       # Build artifacts
       - name: Build
-        run: msbuild.exe PowerPointToOSC.sln /t:restore;build;publish /p:PublishSingleFile=True /p:SelfContained=True /p:RuntimeIdentifier=win10-x64 /p:Configuration=Release
+        run:  msbuild SimpleFrameworkApp.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
 
       # Upload artifacts
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: Dist
-          path: |
-            ./dist/*
-            !./dist/.keep
+          path: bin\Release\Publish
