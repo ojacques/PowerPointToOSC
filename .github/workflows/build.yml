@@ -33,7 +33,7 @@ jobs:
         run:  msbuild PowerPointToOSC.sln /t:publish /p:Configuration=Release
 
       - name: dir files
-        run: dir /s bin
+        run: dir -s bin
 
         # Upload artifacts
       - name: Upload artifacts
