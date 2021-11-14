@@ -37,8 +37,8 @@ jobs:
       - name: Generate zip bundle
         run: 7z a -tzip PowerPointToOSC.zip .\bin\Release\net48\win-x64\*
       
-      #- if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
-      - name: Publish latest pre-release
+      - if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+        name: Publish latest pre-release
         uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
