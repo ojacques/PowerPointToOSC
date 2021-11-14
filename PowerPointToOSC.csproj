@@ -5,6 +5,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>PowerPointToOSC</AssemblyName>
     <RootNamespace>PowerPointToOSC</RootNamespace>
+    <RuntimeIdentifier>win10-x64</RuntimeIdentifier>
+    <PublishSingleFile>true</PublishSingleFile>
+    <PublishTrimmed>true</PublishTrimmed> 
   </PropertyGroup>
   
   <ItemGroup>
