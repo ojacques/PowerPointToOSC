@@ -1,13 +1,25 @@
 # PowerPointToOSC
 
-A .NET core application to send [OSC commands](http://cnmat.org/OpenSoundControl/OSC-spec.html) based on the content of PowerPoint's slides speaker notes.
+A lightweight .NET core application to send [OSC commands](http://cnmat.org/OpenSoundControl/OSC-spec.html) based on the content of PowerPoint's slides speaker notes.
 
 I use it to control a lighting rig, itself controlled by DMX, while I present my slides.
 The USB to DMX interface I use is [DMXIS](https://www.dmxis.com/) from ENTTEC. Either DMXIS or ShowBuddyActive can be controlled by OSC.
 
-![Screenshot](screenshot.jpg)
+📺 demo 👇
 
-PowerPointToOSC is based on [PowerPointToOBSSceneSwitcher](https://github.com/shanselman/PowerPointToOBSSceneSwitcher) which allows to select OBS scenes based on the content of slides speaker notes. There is no OBS support in PowerPointToOSC, which is only focused on OSC.
+[![Screenshot](screenshot.jpg)](https://youtu.be/dcWbzDV5M2E)
+
+## Use cases
+
+I use PowerPointToOSC to control my lighting rig (or the rig of the venue) while presenting during conferences. 
+
+Because OSC is implemented in different solutions, you can use PowerPointToOSC to:
+
+- Control lights, including spots, moving heads, lasers with DMXIS, ShowBuddyActive, GrandMa, ONYX and other compatible light controllers
+- Control OBS: change scenes when changing PowerPoint slides (for example from full screen camera to camera with your screen, to full screen desktop)
+- Control video effects / VJ from Resolume
+- Control Ableton to trigger audio sequences, microphone effects (volume change, echo, robot voice)
+- Mix all of the above: control light, sound, video, live streams through PowerPoint!
 
 ## Usage
 
@@ -60,3 +72,7 @@ PowerPointToOSC relies on [sendosc](https://github.com/yoggy/sendosc) command li
         
         SendUdp(8000, "127.0.0.1", 8000, Encoding.ASCII.GetBytes(oscString));
 ```
+
+## Credits
+
+PowerPointToOSC is based on [PowerPointToOBSSceneSwitcher](https://github.com/shanselman/PowerPointToOBSSceneSwitcher) which allows to select OBS scenes based on the content of slides speaker notes. There is no OBS support in PowerPointToOSC, which is only focused on OSC.
