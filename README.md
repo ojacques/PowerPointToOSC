@@ -5,9 +5,9 @@ A lightweight .NET core application to send [OSC commands](http://cnmat.org/Open
 I use it to control a lighting rig, itself controlled by DMX, while I present my slides.
 The USB to DMX interface I use is [DMXIS](https://www.dmxis.com/) from ENTTEC. Either DMXIS or ShowBuddyActive can be controlled by OSC.
 
-📺 demo 👇
+📺 demo 👇 (click to see a 3 min YouTube video)
 
-[![Screenshot](screenshot.jpg)](https://youtu.be/dcWbzDV5M2E)
+[![Screenshot](powerpointtoosc.gif)](https://youtu.be/dcWbzDV5M2E)
 
 ## Use cases
 
