@@ -75,4 +75,4 @@ PowerPointToOSC relies on [sendosc](https://github.com/yoggy/sendosc) command li
 
 ## Credits
 
-PowerPointToOSC is based on [PowerPointToOBSSceneSwitcher](https://github.com/shanselman/PowerPointToOBSSceneSwitcher) which allows to select OBS scenes based on the content of slides speaker notes. There is no OBS support in PowerPointToOSC, which is only focused on OSC.
+PowerPointToOSC is based on [PowerPointToOBSSceneSwitcher](https://github.com/shanselman/PowerPointToOBSSceneSwitcher) which allows to select OBS scenes based on the content of slides speaker notes. With OSC support, PowerPointToOSC is more generic. OBS can be controlled too using the [OSC-for-OBS](https://github.com/jshea2/OSC-for-OBS) plugin by [@jshea2](https://github.com/jshea2). 
